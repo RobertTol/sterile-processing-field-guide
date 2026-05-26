@@ -1,0 +1,1944 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Sterile Processing Field Guide | Practical SPD Education</title>
+<meta name="description" content="Practical sterile processing training tools for rural facilities, new SPD technicians, cross-trained staff, and frontline leaders."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+/* ═══════════════════════════════════════════════════════════
+   DESIGN TOKENS
+═══════════════════════════════════════════════════════════ */
+:root {
+  --navy:       #0D2B45;
+  --navy-mid:   #1A3D5C;
+  --teal:       #0E7490;
+  --teal-light: #22B8CF;
+  --teal-pale:  #CFFAFE;
+  --white:      #FFFFFF;
+  --off-white:  #F7FAFA;
+  --gray-50:    #F8FAFC;
+  --gray-100:   #EEF2F7;
+  --gray-200:   #DDE6EE;
+  --gray-400:   #94A3B8;
+  --gray-600:   #4B6070;
+  --gray-800:   #1E3040;
+  --gold:       #D4A843;
+  --gold-pale:  #FEF3C7;
+  --gold-dark:  #92670A;
+  --green:      #166534;
+  --green-pale: #DCFCE7;
+  --red:        #991B1B;
+  --red-pale:   #FEE2E2;
+
+  --font-serif: 'Libre Baskerville', Georgia, serif;
+  --font-sans:  'DM Sans', system-ui, sans-serif;
+  --font-mono:  'DM Mono', 'Courier New', monospace;
+
+  --radius-sm:  6px;
+  --radius-md:  12px;
+  --radius-lg:  20px;
+  --radius-xl:  28px;
+
+  --shadow-card: 0 2px 12px rgba(13,43,69,0.08), 0 1px 3px rgba(13,43,69,0.06);
+  --shadow-card-hover: 0 8px 32px rgba(13,43,69,0.14), 0 2px 8px rgba(13,43,69,0.08);
+  --shadow-nav: 0 1px 0 rgba(13,43,69,0.06), 0 4px 24px rgba(13,43,69,0.06);
+
+  --transition: 0.22s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RESET & BASE
+═══════════════════════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--gray-800);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+}
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+/* ═══════════════════════════════════════════════════════════
+   TYPOGRAPHY
+═══════════════════════════════════════════════════════════ */
+h1,h2,h3,h4,h5 { font-family: var(--font-serif); line-height: 1.25; color: var(--navy); }
+h1 { font-size: clamp(2rem, 5vw, 3.25rem); }
+h2 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); }
+h3 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
+h4 { font-size: 1.05rem; font-family: var(--font-sans); font-weight: 600; }
+p  { color: var(--gray-600); max-width: 68ch; }
+.lead { font-size: 1.15rem; line-height: 1.7; color: var(--gray-600); }
+.caption { font-size: 0.8rem; color: var(--gray-400); font-family: var(--font-mono); letter-spacing: 0.02em; }
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--teal);
+  font-weight: 500;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   LAYOUT
+═══════════════════════════════════════════════════════════ */
+.container { width: 100%; max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+.container--wide { max-width: 1320px; }
+.section { padding: 80px 0; }
+.section--sm { padding: 56px 0; }
+.section--lg { padding: 112px 0; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
+@media(max-width:960px) { .grid-3,.grid-4 { grid-template-columns: 1fr 1fr; } }
+@media(max-width:640px) { .grid-2,.grid-3,.grid-4 { grid-template-columns: 1fr; } }
+.flex { display: flex; }
+.flex-center { display: flex; align-items: center; justify-content: center; }
+.flex-between { display: flex; align-items: center; justify-content: space-between; }
+.gap-8  { gap: 8px; }
+.gap-12 { gap: 12px; }
+.gap-16 { gap: 16px; }
+.gap-24 { gap: 24px; }
+.text-center { text-align: center; }
+
+/* ═══════════════════════════════════════════════════════════
+   BUTTONS
+═══════════════════════════════════════════════════════════ */
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 24px; border-radius: var(--radius-md);
+  font-family: var(--font-sans); font-size: 0.95rem; font-weight: 600;
+  transition: all var(--transition); line-height: 1; white-space: nowrap;
+}
+.btn--primary {
+  background: var(--teal); color: var(--white);
+  box-shadow: 0 2px 0 rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.15);
+}
+.btn--primary:hover { background: #0a6480; box-shadow: 0 4px 12px rgba(14,116,144,0.35); transform: translateY(-1px); }
+.btn--navy {
+  background: var(--navy); color: var(--white);
+  box-shadow: 0 2px 0 rgba(0,0,0,0.2);
+}
+.btn--navy:hover { background: var(--navy-mid); transform: translateY(-1px); }
+.btn--outline {
+  background: transparent; color: var(--teal);
+  border: 2px solid var(--teal);
+}
+.btn--outline:hover { background: var(--teal-pale); }
+.btn--outline-white {
+  background: transparent; color: var(--white);
+  border: 2px solid rgba(255,255,255,0.55);
+}
+.btn--outline-white:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.9); }
+.btn--gold {
+  background: var(--gold); color: var(--navy);
+  box-shadow: 0 2px 0 rgba(0,0,0,0.15);
+}
+.btn--gold:hover { background: #c49a38; transform: translateY(-1px); }
+.btn--lg { padding: 15px 32px; font-size: 1rem; }
+.btn--sm { padding: 8px 16px; font-size: 0.85rem; }
+.btn svg { flex-shrink: 0; }
+
+/* ═══════════════════════════════════════════════════════════
+   NAVIGATION
+═══════════════════════════════════════════════════════════ */
+#nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-nav);
+}
+.nav-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 68px; gap: 24px;
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 10px;
+  flex-shrink: 0;
+}
+.nav-logo-mark {
+  width: 36px; height: 36px; border-radius: 8px;
+  background: var(--navy);
+  display: flex; align-items: center; justify-content: center;
+}
+.nav-logo-text strong {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  color: var(--navy);
+  display: block;
+  line-height: 1.15;
+}
+.nav-logo-text span {
+  font-size: 0.65rem;
+  color: var(--teal);
+  font-family: var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.nav-links {
+  display: flex; align-items: center; gap: 4px;
+  list-style: none;
+}
+.nav-links a {
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--gray-600);
+  transition: all var(--transition);
+}
+.nav-links a:hover, .nav-links a.active {
+  color: var(--teal);
+  background: var(--teal-pale);
+}
+.nav-cta { display: flex; align-items: center; gap: 10px; }
+.nav-hamburger { display: none; flex-direction: column; gap: 5px; padding: 8px; }
+.nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--navy); border-radius: 2px; transition: all var(--transition); }
+@media(max-width:900px) {
+  .nav-links, .nav-cta .btn--outline { display: none; }
+  .nav-hamburger { display: flex; }
+  .nav-cta .btn--primary { padding: 8px 16px; font-size: 0.85rem; }
+}
+.mobile-menu {
+  display: none; flex-direction: column;
+  background: var(--white);
+  border-top: 1px solid var(--gray-100);
+  padding: 12px 0 20px;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  padding: 12px 24px;
+  font-weight: 500; color: var(--gray-800);
+  border-left: 3px solid transparent;
+  transition: all var(--transition);
+}
+.mobile-menu a:hover, .mobile-menu a.active {
+  color: var(--teal); background: var(--teal-pale);
+  border-left-color: var(--teal);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CARDS
+═══════════════════════════════════════════════════════════ */
+.card {
+  background: var(--white);
+  border: 1px solid var(--gray-100);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: var(--shadow-card);
+  transition: all var(--transition);
+}
+.card:hover { box-shadow: var(--shadow-card-hover); transform: translateY(-2px); }
+.card--teal { border-top: 4px solid var(--teal); }
+.card--navy { border-top: 4px solid var(--navy); }
+.card--gold  { border-top: 4px solid var(--gold); }
+
+.icon-box {
+  width: 52px; height: 52px; border-radius: var(--radius-md);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 16px; flex-shrink: 0;
+}
+.icon-box--teal { background: var(--teal-pale); color: var(--teal); }
+.icon-box--navy { background: #EBF0F7; color: var(--navy); }
+.icon-box--gold  { background: var(--gold-pale); color: var(--gold-dark); }
+.icon-box--green { background: var(--green-pale); color: var(--green); }
+
+/* ═══════════════════════════════════════════════════════════
+   BADGE / TAGS
+═══════════════════════════════════════════════════════════ */
+.badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 3px 10px;
+  border-radius: 100px;
+  font-size: 0.75rem; font-weight: 600;
+  font-family: var(--font-mono);
+}
+.badge--teal { background: var(--teal-pale); color: var(--teal); }
+.badge--gold  { background: var(--gold-pale); color: var(--gold-dark); }
+.badge--navy  { background: #EBF0F7; color: var(--navy); }
+.badge--green { background: var(--green-pale); color: var(--green); }
+.badge--new   { background: var(--teal); color: var(--white); }
+
+/* ═══════════════════════════════════════════════════════════
+   PAGE HERO
+═══════════════════════════════════════════════════════════ */
+.page-hero {
+  background: var(--navy);
+  color: var(--white);
+  padding: 72px 0 64px;
+  position: relative;
+  overflow: hidden;
+}
+.page-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 80% 120% at 80% 50%, rgba(14,116,144,0.35) 0%, transparent 70%);
+}
+.page-hero .container { position: relative; }
+.page-hero h1 { color: var(--white); margin-bottom: 16px; }
+.page-hero .lead { color: rgba(255,255,255,0.78); max-width: 52ch; }
+.page-hero .eyebrow { color: var(--teal-light); margin-bottom: 12px; }
+
+/* ═══════════════════════════════════════════════════════════
+   SECTION HEADINGS
+═══════════════════════════════════════════════════════════ */
+.section-head { margin-bottom: 48px; }
+.section-head .eyebrow { margin-bottom: 10px; }
+.section-head h2 { margin-bottom: 14px; }
+.section-head p { font-size: 1.05rem; }
+
+/* ═══════════════════════════════════════════════════════════
+   DISCLAIMER BOX
+═══════════════════════════════════════════════════════════ */
+.disclaimer {
+  background: var(--gray-50);
+  border: 1px solid var(--gray-200);
+  border-left: 4px solid var(--teal);
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: var(--gray-600);
+}
+.disclaimer strong { color: var(--navy); }
+
+/* ═══════════════════════════════════════════════════════════
+   DIVIDER
+═══════════════════════════════════════════════════════════ */
+.divider { height: 1px; background: var(--gray-100); margin: 0; }
+hr.section-divider { border: none; height: 1px; background: var(--gray-100); margin: 56px 0; }
+
+/* ═══════════════════════════════════════════════════════════
+   BACKGROUNDS
+═══════════════════════════════════════════════════════════ */
+.bg-off-white { background: var(--off-white); }
+.bg-gray-50   { background: var(--gray-50); }
+.bg-teal-pale { background: var(--teal-pale); }
+.bg-navy      { background: var(--navy); color: var(--white); }
+
+/* ═══════════════════════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════════════════════ */
+#footer {
+  background: var(--navy);
+  color: rgba(255,255,255,0.75);
+  padding: 64px 0 0;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.footer-brand p { color: rgba(255,255,255,0.6); font-size: 0.9rem; margin-top: 12px; max-width: 36ch; }
+.footer-col h5 {
+  font-family: var(--font-sans); font-size: 0.78rem; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--teal-light); margin-bottom: 16px;
+}
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 10px; }
+.footer-col a {
+  color: rgba(255,255,255,0.65); font-size: 0.9rem;
+  transition: color var(--transition);
+}
+.footer-col a:hover { color: var(--teal-light); }
+.footer-bottom {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 0;
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.45);
+  gap: 16px; flex-wrap: wrap;
+}
+@media(max-width:820px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .footer-brand { grid-column: 1/-1; }
+}
+@media(max-width:500px) { .footer-grid { grid-template-columns: 1fr; } }
+
+/* ═══════════════════════════════════════════════════════════
+   EMAIL CAPTURE
+═══════════════════════════════════════════════════════════ */
+.email-form {
+  display: flex; gap: 10px; flex-wrap: wrap;
+}
+.email-form input {
+  flex: 1; min-width: 220px;
+  padding: 12px 16px;
+  border: 2px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  font-family: var(--font-sans); font-size: 0.95rem;
+  background: var(--white); color: var(--gray-800);
+  transition: border-color var(--transition);
+  outline: none;
+}
+.email-form input:focus { border-color: var(--teal); }
+.email-form input::placeholder { color: var(--gray-400); }
+
+/* ═══════════════════════════════════════════════════════════
+   PAGE TRANSITIONS
+═══════════════════════════════════════════════════════════ */
+.page { display: none; }
+.page.active {
+  display: block;
+  animation: pageIn 0.35s ease both;
+}
+@keyframes pageIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   MISC COMPONENTS
+═══════════════════════════════════════════════════════════ */
+.check-list { list-style: none; }
+.check-list li {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 6px 0;
+  font-size: 0.95rem;
+  color: var(--gray-600);
+  border-bottom: 1px solid var(--gray-100);
+}
+.check-list li:last-child { border-bottom: none; }
+.check-list li::before {
+  content: '';
+  width: 20px; height: 20px;
+  background: var(--teal-pale);
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 2px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='%230E7490' d='M7.293 13.707L3.586 10 2.172 11.414l5.121 5.121 10.535-10.535L16.414 4.586z'/%3E%3C/svg%3E");
+  background-size: 12px; background-repeat: no-repeat; background-position: center;
+}
+
+.stat-block { text-align: center; }
+.stat-block .stat-num {
+  font-family: var(--font-serif);
+  font-size: 3rem;
+  color: var(--teal);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.stat-block p { font-size: 0.9rem; color: var(--gray-600); max-width: none; }
+
+.testimonial {
+  background: var(--white);
+  border: 1px solid var(--gray-100);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  box-shadow: var(--shadow-card);
+  position: relative;
+}
+.testimonial::before {
+  content: '"';
+  font-family: var(--font-serif); font-size: 5rem;
+  color: var(--teal-pale);
+  position: absolute; top: -10px; left: 24px;
+  line-height: 1;
+}
+.testimonial-text { font-size: 1rem; color: var(--gray-600); font-style: italic; margin-bottom: 20px; padding-top: 12px; }
+.testimonial-author strong { font-weight: 600; color: var(--navy); font-family: var(--font-sans); font-size: 0.9rem; }
+.testimonial-author span { font-size: 0.82rem; color: var(--gray-400); display: block; }
+
+.pricing-card {
+  background: var(--white);
+  border: 2px solid var(--gray-100);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  transition: all var(--transition);
+}
+.pricing-card:hover { border-color: var(--teal); box-shadow: var(--shadow-card-hover); }
+.pricing-card.featured {
+  background: var(--navy); border-color: var(--teal);
+}
+.pricing-card.featured h3, .pricing-card.featured .price-num,
+.pricing-card.featured p { color: var(--white); }
+.pricing-card.featured .check-list li { color: rgba(255,255,255,0.8); border-color: rgba(255,255,255,0.1); }
+.pricing-card.featured .check-list li::before { background-color: rgba(14,116,144,0.3); }
+.price-num {
+  font-family: var(--font-serif); font-size: 2.8rem;
+  color: var(--navy); line-height: 1; margin: 12px 0;
+}
+.price-num sup { font-size: 1.4rem; vertical-align: top; margin-top: 8px; margin-right: 2px; }
+.price-num span { font-size: 1rem; color: var(--gray-400); font-family: var(--font-sans); font-weight: 400; }
+
+/* Product card for store */
+.product-card {
+  background: var(--white);
+  border: 1px solid var(--gray-100);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  transition: all var(--transition);
+}
+.product-card:hover { box-shadow: var(--shadow-card-hover); transform: translateY(-3px); }
+.product-thumb {
+  height: 180px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 3.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.product-body { padding: 20px; }
+.product-body h4 { font-size: 0.95rem; margin-bottom: 6px; }
+.product-body .price { font-family: var(--font-serif); font-size: 1.3rem; color: var(--teal); font-weight: 700; }
+
+/* ═══════════════════════════════════════════════════════════
+   HERO SECTION (HOME)
+═══════════════════════════════════════════════════════════ */
+.home-hero {
+  background: var(--navy);
+  color: var(--white);
+  padding: 96px 0 80px;
+  position: relative;
+  overflow: hidden;
+}
+.home-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 60% 80% at 100% 50%, rgba(14,116,144,0.4) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 60% at 0% 100%, rgba(212,168,67,0.12) 0%, transparent 50%);
+}
+/* Dot grid texture */
+.home-hero::after {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mask-image: radial-gradient(ellipse at 50% 50%, black 0%, transparent 70%);
+}
+.home-hero .container { position: relative; z-index: 1; }
+.hero-content { max-width: 640px; }
+.hero-content .eyebrow { color: var(--teal-light); margin-bottom: 16px; }
+.hero-content h1 { color: var(--white); margin-bottom: 22px; }
+.hero-content .lead { color: rgba(255,255,255,0.78); margin-bottom: 36px; }
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 48px; }
+.hero-trust {
+  display: flex; align-items: center; gap: 24px; flex-wrap: wrap;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+.hero-trust-item {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 0.82rem; color: rgba(255,255,255,0.6);
+}
+.trust-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--teal-light); flex-shrink: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   QUIZ WIDGET
+═══════════════════════════════════════════════════════════ */
+.quiz-container {
+  background: var(--white);
+  border: 1px solid var(--gray-100);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  max-width: 680px; margin: 0 auto;
+}
+.quiz-header {
+  background: var(--navy);
+  padding: 24px 32px;
+  color: var(--white);
+}
+.quiz-header h3 { color: var(--white); font-family: var(--font-sans); font-size: 1rem; font-weight: 600; }
+.quiz-progress-bar {
+  height: 6px; background: rgba(255,255,255,0.15);
+  border-radius: 3px; margin-top: 12px; overflow: hidden;
+}
+.quiz-progress-fill {
+  height: 100%; background: var(--teal-light);
+  border-radius: 3px; transition: width 0.4s ease;
+}
+.quiz-body { padding: 32px; }
+.quiz-question { font-family: var(--font-serif); font-size: 1.15rem; color: var(--navy); margin-bottom: 24px; line-height: 1.5; }
+.quiz-options { display: flex; flex-direction: column; gap: 10px; }
+.quiz-option {
+  padding: 14px 18px;
+  border: 2px solid var(--gray-100);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition);
+  font-size: 0.95rem; color: var(--gray-700);
+  text-align: left; width: 100%;
+}
+.quiz-option:hover { border-color: var(--teal); background: var(--teal-pale); color: var(--teal); }
+.quiz-option.correct { border-color: var(--green); background: var(--green-pale); color: var(--green); }
+.quiz-option.incorrect { border-color: var(--red); background: var(--red-pale); color: var(--red); }
+.quiz-option.disabled { pointer-events: none; }
+.quiz-feedback {
+  margin-top: 20px; padding: 16px;
+  border-radius: var(--radius-md);
+  font-size: 0.9rem; line-height: 1.6;
+  display: none;
+}
+.quiz-feedback.show { display: block; }
+.quiz-feedback.correct { background: var(--green-pale); color: var(--green); }
+.quiz-feedback.incorrect { background: var(--red-pale); color: var(--red); }
+.quiz-nav { margin-top: 24px; display: flex; justify-content: space-between; align-items: center; }
+.quiz-result { padding: 32px; text-align: center; }
+.quiz-score { font-family: var(--font-serif); font-size: 3.5rem; color: var(--teal); margin: 16px 0; }
+
+/* ═══════════════════════════════════════════════════════════
+   CONTACT FORM
+═══════════════════════════════════════════════════════════ */
+.form-group { margin-bottom: 20px; }
+.form-group label {
+  display: block; font-size: 0.88rem; font-weight: 600;
+  color: var(--navy); margin-bottom: 6px;
+  font-family: var(--font-sans);
+}
+.form-group input, .form-group select, .form-group textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  font-family: var(--font-sans); font-size: 0.95rem;
+  color: var(--gray-800); background: var(--white);
+  transition: border-color var(--transition);
+  outline: none;
+  -webkit-appearance: none;
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(14,116,144,0.1);
+}
+.form-group textarea { resize: vertical; min-height: 120px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media(max-width:500px) { .form-row { grid-template-columns: 1fr; } }
+
+/* ═══════════════════════════════════════════════════════════
+   UTILITY
+═══════════════════════════════════════════════════════════ */
+.mt-8  { margin-top: 8px; }
+.mt-12 { margin-top: 12px; }
+.mt-16 { margin-top: 16px; }
+.mt-24 { margin-top: 24px; }
+.mt-32 { margin-top: 32px; }
+.mt-48 { margin-top: 48px; }
+.mb-8  { margin-bottom: 8px; }
+.mb-12 { margin-bottom: 12px; }
+.mb-16 { margin-bottom: 16px; }
+.mb-24 { margin-bottom: 24px; }
+.mb-32 { margin-bottom: 32px; }
+.mb-48 { margin-bottom: 48px; }
+.hidden { display: none !important; }
+.color-teal  { color: var(--teal); }
+.color-gold  { color: var(--gold); }
+.color-navy  { color: var(--navy); }
+.color-green { color: var(--green); }
+
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════
+     NAVIGATION
+═══════════════════════════════════════════════════════════ -->
+<nav id="nav">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo" onclick="showPage('home')">
+        <div class="nav-logo-mark">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M10 2L3 6v8l7 4 7-4V6L10 2z" stroke="white" stroke-width="1.5" fill="none"/>
+            <path d="M10 6v8M7 7.5l3 1.5 3-1.5" stroke="#22B8CF" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="nav-logo-text">
+          <strong>Sterile Processing Field Guide</strong>
+          <span>SPD Education</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#" onclick="showPage('training')" id="nav-training">Training Materials</a></li>
+        <li><a href="#" onclick="showPage('facility')" id="nav-facility">Facility Support</a></li>
+        <li><a href="#" onclick="showPage('leadership')" id="nav-leadership">Leadership</a></li>
+        <li><a href="#" onclick="showPage('store')" id="nav-store">Store</a></li>
+        <li><a href="#" onclick="showPage('about')" id="nav-about">About</a></li>
+        <li><a href="#" onclick="showPage('contact')" id="nav-contact">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="#" class="btn btn--outline btn--sm" onclick="showPage('training')">Free Resources</a>
+        <a href="#" class="btn btn--primary btn--sm" onclick="showPage('contact')">Get Support</a>
+      </div>
+      <button class="nav-hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#" onclick="showPage('home');toggleMobileMenu()">Home</a>
+    <a href="#" onclick="showPage('training');toggleMobileMenu()">Training Materials</a>
+    <a href="#" onclick="showPage('facility');toggleMobileMenu()">Facility Support</a>
+    <a href="#" onclick="showPage('leadership');toggleMobileMenu()">Leadership Training</a>
+    <a href="#" onclick="showPage('store');toggleMobileMenu()">Store</a>
+    <a href="#" onclick="showPage('about');toggleMobileMenu()">About</a>
+    <a href="#" onclick="showPage('contact');toggleMobileMenu()">Contact</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PAGE: HOME
+═══════════════════════════════════════════════════════════ -->
+<div class="page active" id="page-home">
+
+  <!-- HERO -->
+  <section class="home-hero">
+    <div class="container">
+      <div class="hero-content">
+        <p class="eyebrow">Built for Real SPD Departments</p>
+        <h1>Practical Sterile Processing Education for Real-World Departments</h1>
+        <p class="lead">Training tools, checklists, quizzes, and field guides built specifically for rural surgery centers, ambulatory facilities, new SPD technicians, and frontline leaders.</p>
+        <div class="hero-actions">
+          <a href="#" class="btn btn--primary btn--lg" onclick="showPage('training')">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            Browse Training Materials
+          </a>
+          <a href="#free-download" class="btn btn--outline-white btn--lg">Get Free Download</a>
+        </div>
+        <div class="hero-trust">
+          <div class="hero-trust-item"><div class="trust-dot"></div>Aligned with AAMI & SGNA guidance</div>
+          <div class="hero-trust-item"><div class="trust-dot"></div>Built for frontline staff</div>
+          <div class="hero-trust-item"><div class="trust-dot"></div>IFU-compliance focused</div>
+          <div class="hero-trust-item"><div class="trust-dot"></div>Rural &amp; ASC ready</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO IT'S FOR -->
+  <section class="section bg-off-white">
+    <div class="container">
+      <div class="section-head text-center">
+        <p class="eyebrow">Who This Is For</p>
+        <h2>Built for the Departments That Need It Most</h2>
+        <p style="max-width:54ch;margin:0 auto">Whether you're new to SPD, managing a small team, or cross-training from the OR — these resources were built with your reality in mind.</p>
+      </div>
+      <div class="grid-3">
+        <div class="card card--teal">
+          <div class="icon-box icon-box--teal">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          </div>
+          <h3>New SPD Technicians</h3>
+          <p class="mt-8">Step-by-step training materials, workflow guides, and beginner quizzes built for your first 90 days in the department.</p>
+          <a href="#" class="btn btn--outline btn--sm mt-16" onclick="showPage('training')">See Resources →</a>
+        </div>
+        <div class="card card--navy">
+          <div class="icon-box icon-box--navy">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <h3>SPD Leaders &amp; Supervisors</h3>
+          <p class="mt-8">Competency tools, SOPs, and leadership training frameworks to help you build a consistent, compliant department.</p>
+          <a href="#" class="btn btn--outline btn--sm mt-16" onclick="showPage('leadership')">Leadership Tools →</a>
+        </div>
+        <div class="card card--gold">
+          <div class="icon-box icon-box--gold">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <h3>Rural &amp; Ambulatory Centers</h3>
+          <p class="mt-8">Resources designed for lean teams with limited education budgets — practical, printable, and ready to use on day one.</p>
+          <a href="#" class="btn btn--outline btn--sm mt-16" onclick="showPage('facility')">Facility Support →</a>
+        </div>
+        <div class="card">
+          <div class="icon-box icon-box--green">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+          </div>
+          <h3>Cross-Trained OR Staff</h3>
+          <p class="mt-8">Clear, approachable materials for OR nurses and scrub techs who need foundational SPD knowledge without the jargon.</p>
+          <a href="#" class="btn btn--outline btn--sm mt-16" onclick="showPage('training')">Start Here →</a>
+        </div>
+        <div class="card">
+          <div class="icon-box icon-box--teal">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </div>
+          <h3>Facilities Building SOPs</h3>
+          <p class="mt-8">Template checklists and SOP frameworks that give your facility a strong starting point aligned with best practices.</p>
+          <a href="#" class="btn btn--outline btn--sm mt-16" onclick="showPage('facility')">Browse Templates →</a>
+        </div>
+        <div class="card">
+          <div class="icon-box icon-box--navy">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          </div>
+          <h3>Teams Under Survey Pressure</h3>
+          <p class="mt-8">Competency documentation, traceability tools, and training bundles designed to support TJC and CMS readiness.</p>
+          <a href="#" class="btn btn--outline btn--sm mt-16" onclick="showPage('facility')">Survey Prep →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FREE DOWNLOAD / EMAIL CAPTURE -->
+  <section class="section" id="free-download">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;">
+        <div>
+          <p class="eyebrow">Free Download</p>
+          <h2>Get the SPD Beginner Field Guide — Free</h2>
+          <p class="lead mt-16">Our most popular resource: a practical, plain-language guide covering the complete SPD workflow from pre-cleaning to sterile storage. Includes a quick-reference checklist and key regulatory reminders.</p>
+          <ul class="check-list mt-24">
+            <li>9-step reprocessing workflow overview</li>
+            <li>Spaulding Classification quick reference</li>
+            <li>PPE requirements by zone</li>
+            <li>Biological indicator documentation guide</li>
+            <li>Common error prevention checklist</li>
+            <li>Key standards at a glance (AAMI, AORN, CDC, TJC)</li>
+          </ul>
+        </div>
+        <div>
+          <div style="background:var(--navy);border-radius:var(--radius-xl);padding:40px;color:white;">
+            <h3 style="color:white;margin-bottom:8px;">Get Instant Access</h3>
+            <p style="color:rgba(255,255,255,0.65);font-size:0.9rem;margin-bottom:28px;max-width:none;">Enter your email to receive the free SPD Beginner Field Guide PDF.</p>
+            <div class="email-form" id="free-form">
+              <input type="text" placeholder="Your name" id="free-name" style="background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.2);color:white;" />
+              <input type="email" placeholder="Your email address" id="free-email" style="background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.2);color:white;" />
+              <button class="btn btn--gold" onclick="submitFreeDownload()" style="width:100%;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download Free Guide
+              </button>
+            </div>
+            <div id="free-success" class="hidden" style="text-align:center;padding:20px 0;">
+              <div style="font-size:2.5rem;margin-bottom:12px;">✅</div>
+              <p style="color:white;font-weight:600;max-width:none;">You're in! Check your inbox for the download link.</p>
+              <p style="color:rgba(255,255,255,0.6);font-size:0.85rem;max-width:none;margin-top:6px;">Didn't get it? Check your spam folder.</p>
+            </div>
+            <p style="color:rgba(255,255,255,0.4);font-size:0.78rem;margin-top:16px;max-width:none;">No spam. Unsubscribe any time. We respect your inbox.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE OFFER -->
+  <section class="section bg-gray-50">
+    <div class="container">
+      <div class="section-head text-center">
+        <p class="eyebrow">What We Offer</p>
+        <h2>Practical Tools for Every Level</h2>
+      </div>
+      <div class="grid-4">
+        <div class="card text-center" style="padding:24px 20px;">
+          <div style="font-size:2.2rem;margin-bottom:12px;">📚</div>
+          <h4>Training Modules</h4>
+          <p style="font-size:0.88rem;margin-top:6px;">PowerPoint and PDF training slide decks aligned with AAMI and SGNA guidance</p>
+        </div>
+        <div class="card text-center" style="padding:24px 20px;">
+          <div style="font-size:2.2rem;margin-bottom:12px;">📋</div>
+          <h4>Competency Checklists</h4>
+          <p style="font-size:0.88rem;margin-top:6px;">Printable and editable competency tools for technician onboarding and annual review</p>
+        </div>
+        <div class="card text-center" style="padding:24px 20px;">
+          <div style="font-size:2.2rem;margin-bottom:12px;">🧪</div>
+          <h4>Knowledge Quizzes</h4>
+          <p style="font-size:0.88rem;margin-top:6px;">Browser-based and printable quizzes to test and reinforce sterile processing knowledge</p>
+        </div>
+        <div class="card text-center" style="padding:24px 20px;">
+          <div style="font-size:2.2rem;margin-bottom:12px;">📄</div>
+          <h4>SOP Templates</h4>
+          <p style="font-size:0.88rem;margin-top:6px;">Starter SOP and policy templates your facility can customize to match your workflow</p>
+        </div>
+        <div class="card text-center" style="padding:24px 20px;">
+          <div style="font-size:2.2rem;margin-bottom:12px;">🏥</div>
+          <h4>Facility Bundles</h4>
+          <p style="font-size:0.88rem;margin-top:6px;">Complete training packages for small hospitals, ASCs, and rural surgical facilities</p>
+        </div>
+        <div class="card text-center" style="padding:24px 20px;">
+          <div style="font-size:2.2rem;margin-bottom:12px;">🎓</div>
+          <h4>Leadership Training</h4>
+          <p style="font-size:0.88rem;margin-top:6px;">Guides and tools for new SPD leads and supervisors stepping into management roles</p>
+        </div>
+        <div class="card text-center" style="padding:24px 20px;">
+          <div style="font-size:2.2rem;margin-bottom:12px;">📞</div>
+          <h4>Consulting Support</h4>
+          <p style="font-size:0.88rem;margin-top:6px;">Remote consulting for rural facilities needing department assessment or workflow support</p>
+        </div>
+        <div class="card text-center" style="padding:24px 20px;">
+          <div style="font-size:2.2rem;margin-bottom:12px;">🛍️</div>
+          <h4>SPD Shop</h4>
+          <p style="font-size:0.88rem;margin-top:6px;">Badge cards, posters, stickers, and apparel designed for sterile processing professionals</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SAMPLE QUIZ TEASER -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head text-center">
+        <p class="eyebrow">Try a Sample Quiz</p>
+        <h2>Test Your SPD Knowledge</h2>
+        <p style="max-width:46ch;margin:0 auto">Five quick questions from our beginner training module. No sign-up needed.</p>
+      </div>
+      <div id="quiz-embed"></div>
+    </div>
+  </section>
+
+  <!-- DISCLAIMER -->
+  <section class="section--sm">
+    <div class="container">
+      <div class="disclaimer">
+        <strong>Educational Use Disclaimer:</strong> All materials from Sterile Processing Field Guide are designed for educational purposes only. They do not replace manufacturer Instructions for Use (IFU), facility-specific policies and procedures, AAMI standards, CDC guidance, OSHA requirements, FDA guidance, accreditation requirements, or employer-based competency validation. Materials are built to support commonly referenced sterile processing best practices and are not AAMI-approved, certifying, or equivalent to formal accreditation preparation. Always verify all practices against your facility's validated policies and applicable manufacturer IFUs before implementation.
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section style="background:var(--navy);padding:64px 0;">
+    <div class="container text-center">
+      <p class="eyebrow" style="color:var(--teal-light);">Ready to Get Started?</p>
+      <h2 style="color:white;margin-bottom:16px;">Equip Your Team with Training That Works</h2>
+      <p style="color:rgba(255,255,255,0.65);max-width:52ch;margin:0 auto 32px;">Browse our training library, download free resources, or reach out to discuss custom support for your facility.</p>
+      <div class="flex-center gap-16" style="flex-wrap:wrap;">
+        <a href="#" class="btn btn--primary btn--lg" onclick="showPage('training')">Browse Training Materials</a>
+        <a href="#" class="btn btn--outline-white btn--lg" onclick="showPage('contact')">Contact for Facility Support</a>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /page-home -->
+
+<!-- ═══════════════════════════════════════════════════════════
+     PAGE: TRAINING MATERIALS
+═══════════════════════════════════════════════════════════ -->
+<div class="page" id="page-training">
+  <div class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Training Materials</p>
+      <h1>Practical SPD Training Resources</h1>
+      <p class="lead">PowerPoint modules, field guides, checklists, and browser-based quizzes — all built around real SPD workflow and aligned with commonly referenced best practices.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+
+      <!-- Filter tabs -->
+      <div class="flex gap-8 mb-32" style="flex-wrap:wrap;">
+        <button class="btn btn--primary btn--sm" onclick="filterMaterials('all',this)">All Resources</button>
+        <button class="btn btn--outline btn--sm" onclick="filterMaterials('beginner',this)">Beginner</button>
+        <button class="btn btn--outline btn--sm" onclick="filterMaterials('advanced',this)">Advanced</button>
+        <button class="btn btn--outline btn--sm" onclick="filterMaterials('leader',this)">Leadership</button>
+        <button class="btn btn--outline btn--sm" onclick="filterMaterials('free',this)">Free</button>
+      </div>
+
+      <div class="grid-3" id="materials-grid">
+
+        <div class="card card--teal" data-cat="beginner free">
+          <div class="flex-between mb-12">
+            <span class="badge badge--new">FREE</span>
+            <span class="badge badge--teal">Beginner</span>
+          </div>
+          <div style="font-size:2rem;margin-bottom:12px;">📗</div>
+          <h3>SPD Beginner Field Guide</h3>
+          <p class="mt-8">Complete workflow overview from pre-cleaning to sterile storage. Includes key regulatory reference points and common error guide. PDF format, printable.</p>
+          <div class="flex-between mt-24">
+            <span style="font-family:var(--font-serif);font-size:1.3rem;color:var(--teal);font-weight:700;">Free</span>
+            <a href="#free-download" class="btn btn--primary btn--sm" onclick="showPage('home')">Download Free</a>
+          </div>
+        </div>
+
+        <div class="card card--teal" data-cat="beginner">
+          <div class="flex-between mb-12">
+            <span class="badge badge--teal">Beginner</span>
+            <span class="badge badge--navy">PowerPoint</span>
+          </div>
+          <div style="font-size:2rem;margin-bottom:12px;">📊</div>
+          <h3>Intro to Sterile Processing — Training Module</h3>
+          <p class="mt-8">14-slide PowerPoint training deck covering what SPD is, governing bodies, the reprocessing workflow, Spaulding Classification, and common errors. Built for new hires.</p>
+          <div class="flex-between mt-24">
+            <span style="font-family:var(--font-serif);font-size:1.3rem;color:var(--teal);font-weight:700;">$18</span>
+            <button class="btn btn--primary btn--sm" onclick="showPage('store')">Add to Cart</button>
+          </div>
+        </div>
+
+        <div class="card card--teal" data-cat="advanced">
+          <div class="flex-between mb-12">
+            <span class="badge badge--navy">Advanced</span>
+            <span class="badge badge--navy">PowerPoint</span>
+          </div>
+          <div style="font-size:2rem;margin-bottom:12px;">🔬</div>
+          <h3>GI Endoscope Reprocessing Module</h3>
+          <p class="mt-8">Flexible endoscope reprocessing for EGD and colonoscopes. Covers leak testing, Scope Buddy, AER cycles, Medivator, forced-air drying, and HLD storage timelines.</p>
+          <div class="flex-between mt-24">
+            <span style="font-family:var(--font-serif);font-size:1.3rem;color:var(--teal);font-weight:700;">$22</span>
+            <button class="btn btn--primary btn--sm" onclick="showPage('store')">Add to Cart</button>
+          </div>
+        </div>
+
+        <div class="card" data-cat="beginner free">
+          <div class="flex-between mb-12">
+            <span class="badge badge--new">FREE</span>
+            <span class="badge badge--teal">Beginner</span>
+          </div>
+          <div style="font-size:2rem;margin-bottom:12px;">🧪</div>
+          <h3>Beginner SPD Knowledge Quiz</h3>
+          <p class="mt-8">10-question browser-based quiz covering Spaulding Classification, sterilization methods, biological indicators, and PPE requirements. Instant scoring with explanations.</p>
+          <div class="flex-between mt-24">
+            <span style="font-family:var(--font-serif);font-size:1.3rem;color:var(--teal);font-weight:700;">Free</span>
+            <button class="btn btn--primary btn--sm" onclick="showPage('home');setTimeout(()=>document.querySelector('#quiz-embed').scrollIntoView({behavior:'smooth'}),400)">Take Quiz</button>
+          </div>
+        </div>
+
+        <div class="card" data-cat="beginner leader">
+          <div class="flex-between mb-12">
+            <span class="badge badge--teal">Beginner</span>
+            <span class="badge badge--gold">Checklist</span>
+          </div>
+          <div style="font-size:2rem;margin-bottom:12px;">📋</div>
+          <h3>New Technician Competency Checklist</h3>
+          <p class="mt-8">Printable and editable competency verification form for new SPD hires. Covers decontamination, assembly, sterilization, and documentation. Supervisor sign-off ready.</p>
+          <div class="flex-between mt-24">
+            <span style="font-family:var(--font-serif);font-size:1.3rem;color:var(--teal);font-weight:700;">$12</span>
+            <button class="btn btn--primary btn--sm" onclick="showPage('store')">Add to Cart</button>
+          </div>
+        </div>
+
+        <div class="card" data-cat="advanced leader">
+          <div class="flex-between mb-12">
+            <span class="badge badge--navy">Advanced</span>
+            <span class="badge badge--gold">Bundle</span>
+          </div>
+          <div style="font-size:2rem;margin-bottom:12px;">📦</div>
+          <h3>Sterilization Methods Deep Dive Bundle</h3>
+          <p class="mt-8">Comprehensive module covering steam, EtO, H₂O₂ plasma, and chemical sterilants. Includes cycle parameters, indicator types, load monitoring, and documentation requirements.</p>
+          <div class="flex-between mt-24">
+            <span style="font-family:var(--font-serif);font-size:1.3rem;color:var(--teal);font-weight:700;">$28</span>
+            <button class="btn btn--primary btn--sm" onclick="showPage('store')">Add to Cart</button>
+          </div>
+        </div>
+
+        <div class="card" data-cat="beginner">
+          <div class="flex-between mb-12">
+            <span class="badge badge--teal">Beginner</span>
+            <span class="badge badge--navy">PDF</span>
+          </div>
+          <div style="font-size:2rem;margin-bottom:12px;">🗂️</div>
+          <h3>Spaulding Classification Quick Reference Card</h3>
+          <p class="mt-8">Single-page laminated-ready reference card covering Critical, Semi-Critical, and Non-Critical classifications with device examples and required disinfection levels.</p>
+          <div class="flex-between mt-24">
+            <span style="font-family:var(--font-serif);font-size:1.3rem;color:var(--teal);font-weight:700;">$6</span>
+            <button class="btn btn--primary btn--sm" onclick="showPage('store')">Add to Cart</button>
+          </div>
+        </div>
+
+        <div class="card" data-cat="advanced">
+          <div class="flex-between mb-12">
+            <span class="badge badge--navy">Advanced</span>
+            <span class="badge badge--navy">PowerPoint</span>
+          </div>
+          <div style="font-size:2rem;margin-bottom:12px;">📊</div>
+          <h3>Biological Indicator &amp; Sterility Assurance Module</h3>
+          <p class="mt-8">Deep dive into BI types, chemical indicators, Bowie-Dick testing, implant load protocols, and TJC documentation requirements. Includes a competency quiz.</p>
+          <div class="flex-between mt-24">
+            <span style="font-family:var(--font-serif);font-size:1.3rem;color:var(--teal);font-weight:700;">$20</span>
+            <button class="btn btn--primary btn--sm" onclick="showPage('store')">Add to Cart</button>
+          </div>
+        </div>
+
+        <div class="card card--gold" data-cat="leader">
+          <div class="flex-between mb-12">
+            <span class="badge badge--gold">Leadership</span>
+            <span class="badge badge--navy">Bundle</span>
+          </div>
+          <div style="font-size:2rem;margin-bottom:12px;">🎓</div>
+          <h3>New SPD Lead Starter Bundle</h3>
+          <p class="mt-8">Everything a new SPD supervisor needs to hit the ground running: SOP templates, competency forms, quality monitoring checklists, and a leadership orientation guide.</p>
+          <div class="flex-between mt-24">
+            <span style="font-family:var(--font-serif);font-size:1.3rem;color:var(--teal);font-weight:700;">$48</span>
+            <button class="btn btn--primary btn--sm" onclick="showPage('store')">Add to Cart</button>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="mt-48">
+        <div class="disclaimer">
+          <strong>About These Materials:</strong> All training modules are built to support commonly referenced sterile processing best practices, manufacturer IFU compliance, and facility-based training. They are not AAMI-approved or certifying and do not replace employer-based competency validation, accreditation preparation, or formal certification programs such as CRCST or CSPDT. Always verify procedures against your facility's current policies and applicable manufacturer IFUs.
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-training -->
+
+<!-- ═══════════════════════════════════════════════════════════
+     PAGE: FACILITY SUPPORT
+═══════════════════════════════════════════════════════════ -->
+<div class="page" id="page-facility">
+  <div class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Facility Support</p>
+      <h1>Support Built for Small Teams with Big Responsibilities</h1>
+      <p class="lead">Rural surgery centers, ASCs, and small hospitals often operate with limited SPD education resources. These bundles and consulting services were built with your constraints in mind.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Training Bundles</p>
+        <h2>Complete Facility Training Packages</h2>
+        <p>Everything your facility needs to build a structured SPD education program — packaged together at a reduced rate.</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="pricing-card">
+          <span class="badge badge--teal mb-16">Starter</span>
+          <h3>ASC Starter Bundle</h3>
+          <p style="font-size:0.9rem;margin-top:8px;">For small ambulatory surgery centers and outpatient facilities with 1–3 SPD staff.</p>
+          <div class="price-num"><sup>$</sup>129</div>
+          <ul class="check-list mt-16">
+            <li>Intro to SPD PowerPoint module</li>
+            <li>New technician competency checklist</li>
+            <li>Spaulding Classification reference card</li>
+            <li>Beginner quiz (printable + browser)</li>
+            <li>Sterilization log template</li>
+            <li>Basic SOP starter template (3 SOPs)</li>
+          </ul>
+          <a href="#" class="btn btn--outline mt-24" style="width:100%;justify-content:center;" onclick="showPage('contact')">Request This Bundle</a>
+        </div>
+
+        <div class="pricing-card featured">
+          <span class="badge badge--new mb-16">Most Popular</span>
+          <h3>Rural Hospital Education Package</h3>
+          <p style="font-size:0.9rem;margin-top:8px;color:rgba(255,255,255,0.65);">For rural hospitals and critical access facilities with small SPD departments and cross-trained staff.</p>
+          <div class="price-num"><sup>$</sup>249</div>
+          <ul class="check-list mt-16">
+            <li>All Starter Bundle items</li>
+            <li>GI Endoscope Reprocessing module</li>
+            <li>Sterilization methods deep dive</li>
+            <li>OR staff cross-training orientation</li>
+            <li>Complete SOP template set (10 SOPs)</li>
+            <li>Annual competency documentation kit</li>
+            <li>Leadership orientation guide</li>
+            <li>Email support — 30 days included</li>
+          </ul>
+          <a href="#" class="btn btn--primary mt-24" style="width:100%;justify-content:center;" onclick="showPage('contact')">Request This Bundle</a>
+        </div>
+
+        <div class="pricing-card">
+          <span class="badge badge--gold mb-16">Enterprise</span>
+          <h3>Custom Facility Package</h3>
+          <p style="font-size:0.9rem;margin-top:8px;">For facilities with unique needs, multiple departments, or ongoing consulting support requirements.</p>
+          <div class="price-num" style="font-size:2rem;">Custom</div>
+          <ul class="check-list mt-16">
+            <li>Full material library access</li>
+            <li>Custom module development</li>
+            <li>Remote department assessment</li>
+            <li>Workflow review and gap analysis</li>
+            <li>Leadership support sessions</li>
+            <li>Custom competency forms</li>
+            <li>Ongoing consulting retainer option</li>
+          </ul>
+          <a href="#" class="btn btn--navy mt-24" style="width:100%;justify-content:center;" onclick="showPage('contact')">Request a Consultation</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-gray-50">
+    <div class="container">
+      <div class="section-head text-center">
+        <p class="eyebrow">Consulting Services</p>
+        <h2>Remote SPD Consulting Support</h2>
+        <p style="max-width:54ch;margin:0 auto">Can't bring someone on-site? We offer remote consulting options designed for facilities that need outside expertise without the travel cost.</p>
+      </div>
+      <div class="grid-2 mt-32">
+        <div class="card">
+          <div class="icon-box icon-box--teal"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
+          <h3>Department Workflow Review</h3>
+          <p class="mt-8">We review your current department setup — workflow, physical space, documentation practices, and staff structure — and provide a written gap analysis with practical recommendations aligned with current best practices.</p>
+          <ul class="check-list mt-16">
+            <li>Pre-call document review</li>
+            <li>60-minute video walkthrough session</li>
+            <li>Written gap analysis report</li>
+            <li>Prioritized action recommendations</li>
+          </ul>
+          <a href="#" class="btn btn--primary mt-24" onclick="showPage('contact')">Request a Review</a>
+        </div>
+        <div class="card">
+          <div class="icon-box icon-box--gold"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+          <h3>Staff Education Planning</h3>
+          <p class="mt-8">Work with us to build a structured education calendar for your SPD staff. We'll help you identify training gaps, select appropriate materials, and create a documentation plan that satisfies competency requirements.</p>
+          <ul class="check-list mt-16">
+            <li>Staff skill gap assessment guide</li>
+            <li>Custom training calendar template</li>
+            <li>Material recommendations for your team</li>
+            <li>Competency documentation framework</li>
+          </ul>
+          <a href="#" class="btn btn--primary mt-24" onclick="showPage('contact')">Start Planning</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section--sm">
+    <div class="container">
+      <div class="disclaimer">
+        <strong>Important Note on Consulting Services:</strong> Consulting support provided through Sterile Processing Field Guide is educational and advisory in nature. Consulting services do not constitute regulatory compliance assurance, infection control certification, or accreditation preparation and should not be represented as such to accrediting bodies. All recommendations should be reviewed by your facility's leadership and compliance team before implementation. Facility policies, manufacturer IFUs, and applicable regulatory standards always take precedence.
+      </div>
+    </div>
+  </section>
+</div><!-- /page-facility -->
+
+<!-- ═══════════════════════════════════════════════════════════
+     PAGE: LEADERSHIP TRAINING
+═══════════════════════════════════════════════════════════ -->
+<div class="page" id="page-leadership">
+  <div class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Leadership Training</p>
+      <h1>Tools for New SPD Leads, Supervisors &amp; Managers</h1>
+      <p class="lead">Being promoted into an SPD leadership role without a roadmap is one of the most common challenges in the field. These resources give new leaders practical tools, not just theory.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid-2" style="gap:64px;align-items:center;">
+        <div>
+          <p class="eyebrow">The Leadership Gap in SPD</p>
+          <h2>Most New SPD Leaders Are Promoted Without a Playbook</h2>
+          <p class="lead mt-16">You were a great technician. Now you're the lead or supervisor — responsible for training, documentation, competency, compliance, and department performance. That's a big jump, and most facilities don't provide a structured transition.</p>
+          <p class="mt-16">These resources won't replace experience — but they give you a starting point for the most critical leadership responsibilities in a sterile processing department.</p>
+          <a href="#" class="btn btn--primary mt-32" onclick="showPage('store')">Browse Leadership Resources</a>
+        </div>
+        <div>
+          <div class="card" style="border-left:4px solid var(--gold);">
+            <h4 style="color:var(--gold-dark);font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:16px;">What New SPD Leaders Tell Us They Need Most</h4>
+            <ul class="check-list">
+              <li>How to orient and train a new technician from day one</li>
+              <li>What competency documentation needs to look like for TJC</li>
+              <li>How to build or update SOPs without starting from scratch</li>
+              <li>What to prioritize when the department is behind on training</li>
+              <li>How to manage biological indicator documentation correctly</li>
+              <li>How to handle a wet pack or sterilization failure correctly</li>
+              <li>How to talk to administration about staffing and resources</li>
+              <li>What to do before a survey — and what surveyors actually look for</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-gray-50">
+    <div class="container">
+      <div class="section-head text-center">
+        <p class="eyebrow">Leadership Resources</p>
+        <h2>Tools Designed for SPD Leaders</h2>
+      </div>
+      <div class="grid-3">
+        <div class="card card--gold">
+          <div style="font-size:2rem;margin-bottom:12px;">🎓</div>
+          <span class="badge badge--gold mb-12">Bundle</span>
+          <h3>New SPD Lead Starter Bundle</h3>
+          <p class="mt-8">The complete starter kit for a new SPD supervisor: onboarding guide, SOP templates, competency forms, quality monitoring tools, and a 90-day leadership checklist.</p>
+          <div class="flex-between mt-24">
+            <span style="font-family:var(--font-serif);font-size:1.3rem;color:var(--teal);font-weight:700;">$48</span>
+            <button class="btn btn--primary btn--sm" onclick="showPage('store')">Get Bundle</button>
+          </div>
+        </div>
+        <div class="card">
+          <div style="font-size:2rem;margin-bottom:12px;">📋</div>
+          <span class="badge badge--navy mb-12">Template</span>
+          <h3>Annual Competency Documentation Kit</h3>
+          <p class="mt-8">Complete annual competency verification forms for SPD staff — covers decontamination, assembly, sterilization, storage, and documentation. TJC-friendly format.</p>
+          <div class="flex-between mt-24">
+            <span style="font-family:var(--font-serif);font-size:1.3rem;color:var(--teal);font-weight:700;">$24</span>
+            <button class="btn btn--primary btn--sm" onclick="showPage('store')">Add to Cart</button>
+          </div>
+        </div>
+        <div class="card">
+          <div style="font-size:2rem;margin-bottom:12px;">📄</div>
+          <span class="badge badge--navy mb-12">SOP Templates</span>
+          <h3>Complete SOP Template Library</h3>
+          <p class="mt-8">10 editable SOP templates covering decontamination, sterilization, packaging, storage, loaner instruments, recall procedures, and quality monitoring.</p>
+          <div class="flex-between mt-24">
+            <span style="font-family:var(--font-serif);font-size:1.3rem;color:var(--teal);font-weight:700;">$36</span>
+            <button class="btn btn--primary btn--sm" onclick="showPage('store')">Add to Cart</button>
+          </div>
+        </div>
+        <div class="card">
+          <div style="font-size:2rem;margin-bottom:12px;">🔍</div>
+          <span class="badge badge--teal mb-12">Guide</span>
+          <h3>Survey Readiness Self-Assessment</h3>
+          <p class="mt-8">A practical self-assessment tool that walks through common SPD survey findings from TJC and CMS. Helps identify gaps before a surveyor does.</p>
+          <div class="flex-between mt-24">
+            <span style="font-family:var(--font-serif);font-size:1.3rem;color:var(--teal);font-weight:700;">$18</span>
+            <button class="btn btn--primary btn--sm" onclick="showPage('store')">Add to Cart</button>
+          </div>
+        </div>
+        <div class="card">
+          <div style="font-size:2rem;margin-bottom:12px;">📊</div>
+          <span class="badge badge--navy mb-12">Tracking Tool</span>
+          <h3>Quality Monitoring Log Template</h3>
+          <p class="mt-8">Editable log template for tracking BI results, wet packs, cycle failures, and corrective actions. Includes a monthly summary section for leadership reporting.</p>
+          <div class="flex-between mt-24">
+            <span style="font-family:var(--font-serif);font-size:1.3rem;color:var(--teal);font-weight:700;">$14</span>
+            <button class="btn btn--primary btn--sm" onclick="showPage('store')">Add to Cart</button>
+          </div>
+        </div>
+        <div class="card">
+          <div style="font-size:2rem;margin-bottom:12px;">💬</div>
+          <span class="badge badge--gold mb-12">Consulting</span>
+          <h3>New Leader Coaching Session</h3>
+          <p class="mt-8">60-minute one-on-one video call for new SPD leads. Walk through your department's current situation, top challenges, and leave with a practical action plan.</p>
+          <div class="flex-between mt-24">
+            <span style="font-family:var(--font-serif);font-size:1.3rem;color:var(--teal);font-weight:700;">$85</span>
+            <a href="#" class="btn btn--primary btn--sm" onclick="showPage('contact')">Schedule Session</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-leadership -->
+
+<!-- ═══════════════════════════════════════════════════════════
+     PAGE: STORE
+═══════════════════════════════════════════════════════════ -->
+<div class="page" id="page-store">
+  <div class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Store</p>
+      <h1>SPD Education Materials &amp; Field Gear</h1>
+      <p class="lead">Digital training resources, templates, and SPD-themed gear for sterile processing professionals who take their work seriously.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+
+      <!-- Digital Products -->
+      <div class="section-head">
+        <p class="eyebrow">Digital Products</p>
+        <h2>Training Modules &amp; Templates</h2>
+      </div>
+      <div class="grid-4">
+        <div class="product-card">
+          <div class="product-thumb" style="background:linear-gradient(135deg,var(--teal-pale),var(--teal));color:white;">📗</div>
+          <div class="product-body">
+            <span class="badge badge--new mb-8">Free</span>
+            <h4>SPD Beginner Field Guide PDF</h4>
+            <div class="flex-between mt-12">
+              <span class="price">Free</span>
+              <button class="btn btn--outline btn--sm" onclick="showPage('home')">Download</button>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-thumb" style="background:linear-gradient(135deg,#EBF0F7,var(--navy));">📊</div>
+          <div class="product-body">
+            <h4>Intro to SPD PowerPoint Module</h4>
+            <div class="flex-between mt-12">
+              <span class="price">$18</span>
+              <button class="btn btn--primary btn--sm">Buy</button>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-thumb" style="background:linear-gradient(135deg,#F0FDF4,var(--green));">🔬</div>
+          <div class="product-body">
+            <h4>GI Endoscope Reprocessing Module</h4>
+            <div class="flex-between mt-12">
+              <span class="price">$22</span>
+              <button class="btn btn--primary btn--sm">Buy</button>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-thumb" style="background:linear-gradient(135deg,var(--gold-pale),var(--gold));">🎓</div>
+          <div class="product-body">
+            <h4>New SPD Lead Starter Bundle</h4>
+            <div class="flex-between mt-12">
+              <span class="price">$48</span>
+              <button class="btn btn--primary btn--sm">Buy</button>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-thumb" style="background:linear-gradient(135deg,var(--teal-pale),var(--teal-light));">📋</div>
+          <div class="product-body">
+            <h4>New Tech Competency Checklist</h4>
+            <div class="flex-between mt-12">
+              <span class="price">$12</span>
+              <button class="btn btn--primary btn--sm">Buy</button>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-thumb" style="background:linear-gradient(135deg,#F0F4FF,#6366F1);">📄</div>
+          <div class="product-body">
+            <h4>Complete SOP Template Library (10 SOPs)</h4>
+            <div class="flex-between mt-12">
+              <span class="price">$36</span>
+              <button class="btn btn--primary btn--sm">Buy</button>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-thumb" style="background:linear-gradient(135deg,var(--red-pale),#F87171);">📊</div>
+          <div class="product-body">
+            <h4>BI &amp; Sterility Assurance Module</h4>
+            <div class="flex-between mt-12">
+              <span class="price">$20</span>
+              <button class="btn btn--primary btn--sm">Buy</button>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-thumb" style="background:linear-gradient(135deg,var(--gold-pale),#FBBF24);">🔍</div>
+          <div class="product-body">
+            <h4>Survey Readiness Self-Assessment</h4>
+            <div class="flex-between mt-12">
+              <span class="price">$18</span>
+              <button class="btn btn--primary btn--sm">Buy</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="section-divider"/>
+
+      <!-- Shop / Merch -->
+      <div class="section-head">
+        <p class="eyebrow">SPD Field Gear</p>
+        <h2>For the Sterile Processing Professional</h2>
+        <p>Coming soon — badge cards, posters, stickers, mugs, and apparel designed for people who work in SPD. <span style="font-style:italic;">Because we deserve good stuff too.</span></p>
+      </div>
+      <div class="grid-4">
+        <div class="product-card" style="opacity:0.65;">
+          <div class="product-thumb" style="background:linear-gradient(135deg,var(--gray-100),var(--gray-200));">🪪</div>
+          <div class="product-body">
+            <span class="badge badge--navy mb-8">Coming Soon</span>
+            <h4>SPD Quick Reference Badge Card</h4>
+            <div class="flex-between mt-12">
+              <span class="price" style="color:var(--gray-400);">$6</span>
+              <button class="btn btn--outline btn--sm" disabled>Notify Me</button>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="opacity:0.65;">
+          <div class="product-thumb" style="background:linear-gradient(135deg,var(--gray-100),var(--gray-200));">🖼️</div>
+          <div class="product-body">
+            <span class="badge badge--navy mb-8">Coming Soon</span>
+            <h4>Spaulding Classification Poster</h4>
+            <div class="flex-between mt-12">
+              <span class="price" style="color:var(--gray-400);">$14</span>
+              <button class="btn btn--outline btn--sm" disabled>Notify Me</button>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="opacity:0.65;">
+          <div class="product-thumb" style="background:linear-gradient(135deg,var(--gray-100),var(--gray-200));">☕</div>
+          <div class="product-body">
+            <span class="badge badge--navy mb-8">Coming Soon</span>
+            <h4 style="font-size:0.85rem;">"I Sterilize Things So Surgeons Can Use Them" Mug</h4>
+            <div class="flex-between mt-12">
+              <span class="price" style="color:var(--gray-400);">$18</span>
+              <button class="btn btn--outline btn--sm" disabled>Notify Me</button>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="opacity:0.65;">
+          <div class="product-thumb" style="background:linear-gradient(135deg,var(--gray-100),var(--gray-200));">👕</div>
+          <div class="product-body">
+            <span class="badge badge--navy mb-8">Coming Soon</span>
+            <h4>SPD Field Guide Tee</h4>
+            <div class="flex-between mt-12">
+              <span class="price" style="color:var(--gray-400);">$28</span>
+              <button class="btn btn--outline btn--sm" disabled>Notify Me</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card text-center mt-32" style="background:var(--teal-pale);border:none;padding:36px;">
+        <p class="eyebrow">Shop Launch</p>
+        <h3 style="margin-bottom:12px;">Be First to Know When the Shop Opens</h3>
+        <p style="max-width:44ch;margin:0 auto 24px;">Sign up and we'll notify you when badge cards, posters, stickers, and apparel are available.</p>
+        <div class="email-form" style="max-width:420px;margin:0 auto;">
+          <input type="email" placeholder="Your email" id="shop-email"/>
+          <button class="btn btn--navy" onclick="subscribeShop()">Notify Me</button>
+        </div>
+        <div id="shop-success" class="hidden mt-16" style="color:var(--green);font-weight:600;">✅ You're on the list!</div>
+      </div>
+
+    </div>
+  </section>
+</div><!-- /page-store -->
+
+<!-- ═══════════════════════════════════════════════════════════
+     PAGE: ABOUT
+═══════════════════════════════════════════════════════════ -->
+<div class="page" id="page-about">
+  <div class="page-hero">
+    <div class="container">
+      <p class="eyebrow">About</p>
+      <h1>Built by Someone Who Has Worked the Department</h1>
+      <p class="lead">Sterile Processing Field Guide exists because too many SPD departments — especially small and rural ones — are trying to build education programs with almost no support.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid-2" style="gap:64px;align-items:start;">
+        <div>
+          <p class="eyebrow">Why This Exists</p>
+          <h2>Real SPD Education for Real Departments</h2>
+          <p class="lead mt-16">Too many new SPD technicians are handed a binder and told to figure it out. Too many rural facilities are operating without structured training programs. Too many new leads are promoted without any kind of leadership support.</p>
+          <p class="mt-16">Sterile Processing Field Guide was created to fill that gap — with practical, plainspoken resources that are actually useful in a real department on a real day.</p>
+          <p class="mt-16">Every resource is built around how SPD actually works: the workflow, the documentation, the regulatory requirements, and the real-world constraints that smaller facilities face. Nothing is theoretical. Nothing is designed for a level-one academic medical center with a full education department.</p>
+          <p class="mt-16">This is for the two-person SPD team at a rural surgery center. It's for the OR nurse who just got cross-trained. It's for the new lead who has never written an SOP before. It's for the technician who wants to understand the why behind what they do every day.</p>
+        </div>
+        <div>
+          <div class="card" style="border-left:4px solid var(--teal);">
+            <p class="eyebrow">Our Commitment</p>
+            <h3 style="margin-top:8px;margin-bottom:16px;">What We Stand Behind</h3>
+            <ul class="check-list">
+              <li>Content aligned with AAMI, SGNA, AORN, and CDC guidance</li>
+              <li>Manufacturer IFU compliance emphasized throughout all materials</li>
+              <li>No overclaiming — we are educational, not certifying</li>
+              <li>Practical first — if it doesn't work in a real department, we fix it</li>
+              <li>Accessible language without talking down to professionals</li>
+              <li>Resources that work for small teams with limited budgets</li>
+            </ul>
+          </div>
+
+          <div class="card mt-24" style="background:var(--gold-pale);border:1px solid var(--gold);">
+            <h4>What We Are Not</h4>
+            <p style="font-size:0.9rem;margin-top:8px;">We are not an accrediting body, a certification program, or a regulatory compliance service. Our materials support your facility's education program — they do not replace your policies, your IFUs, your accreditation obligations, or your employer's competency validation requirements.</p>
+          </div>
+        </div>
+      </div>
+
+      <hr class="section-divider"/>
+
+      <div class="text-center">
+        <p class="eyebrow">By the Numbers</p>
+        <h2 style="margin-bottom:48px;">Growing with the SPD Community</h2>
+        <div class="grid-4">
+          <div class="stat-block"><div class="stat-num">1K+</div><p>Technicians Reached</p></div>
+          <div class="stat-block"><div class="stat-num">200+</div><p>Facilities Using Materials</p></div>
+          <div class="stat-block"><div class="stat-num">15+</div><p>Training Modules Available</p></div>
+          <div class="stat-block"><div class="stat-num">100%</div><p>Built Around Real SPD Workflow</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-gray-50">
+    <div class="container">
+      <div class="section-head text-center">
+        <p class="eyebrow">What People Say</p>
+        <h2>From Technicians and Leaders in the Field</h2>
+      </div>
+      <div class="grid-3">
+        <div class="testimonial">
+          <p class="testimonial-text">I started my new SPD tech job with no background and this field guide was the first thing that actually made the workflow click for me. Clear, not overwhelming, actually useful.</p>
+          <div class="testimonial-author"><strong>A.M.</strong><span>New SPD Technician — Rural Surgery Center, Midwest</span></div>
+        </div>
+        <div class="testimonial">
+          <p class="testimonial-text">We're a two-person department at a critical access hospital. The facility bundle gave us a starting framework for SOPs and competency documentation that we desperately needed.</p>
+          <div class="testimonial-author"><strong>R.T.</strong><span>SPD Lead — Critical Access Hospital, Rural Southeast</span></div>
+        </div>
+        <div class="testimonial">
+          <p class="testimonial-text">The leadership bundle was what I needed when I got promoted six months into the job. The 90-day checklist alone was worth it — I finally felt like I had a plan.</p>
+          <div class="testimonial-author"><strong>D.W.</strong><span>New SPD Supervisor — Ambulatory Surgery Center</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-about -->
+
+<!-- ═══════════════════════════════════════════════════════════
+     PAGE: CONTACT
+═══════════════════════════════════════════════════════════ -->
+<div class="page" id="page-contact">
+  <div class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Contact</p>
+      <h1>Let's Talk About Your Department's Needs</h1>
+      <p class="lead">Questions about materials, facility bundles, consulting support, or custom training development? Reach out and we'll respond within 2 business days.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid-2" style="gap:64px;align-items:start;">
+        <!-- Form -->
+        <div>
+          <h2 style="margin-bottom:32px;">Send a Message</h2>
+          <div id="contact-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label>First Name</label>
+                <input type="text" placeholder="Jane" id="cf-fname"/>
+              </div>
+              <div class="form-group">
+                <label>Last Name</label>
+                <input type="text" placeholder="Smith" id="cf-lname"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Email Address</label>
+              <input type="email" placeholder="jane@facility.org" id="cf-email"/>
+            </div>
+            <div class="form-group">
+              <label>Facility / Organization <span style="color:var(--gray-400);font-weight:400;">(optional)</span></label>
+              <input type="text" placeholder="Rural Valley Surgery Center" id="cf-facility"/>
+            </div>
+            <div class="form-group">
+              <label>Your Role</label>
+              <select id="cf-role">
+                <option value="">Select your role...</option>
+                <option>New SPD Technician</option>
+                <option>SPD Lead / Supervisor</option>
+                <option>SPD Manager / Director</option>
+                <option>OR Staff / Cross-Training</option>
+                <option>Facility Administrator</option>
+                <option>Educator / Instructor</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>What Are You Looking For?</label>
+              <select id="cf-reason">
+                <option value="">Select a reason...</option>
+                <option>Training materials for individual use</option>
+                <option>Facility training bundle inquiry</option>
+                <option>Remote consulting support</option>
+                <option>Custom training development</option>
+                <option>Leadership tools and coaching</option>
+                <option>General question or feedback</option>
+                <option>Something else</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Message</label>
+              <textarea placeholder="Tell us a bit about your department's situation, what you're looking for, or any questions you have..." id="cf-message"></textarea>
+            </div>
+            <button class="btn btn--primary btn--lg" onclick="submitContact()" style="width:100%;justify-content:center;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              Send Message
+            </button>
+          </div>
+          <div id="contact-success" class="hidden">
+            <div style="background:var(--green-pale);border:1px solid var(--green);border-radius:var(--radius-lg);padding:40px;text-align:center;">
+              <div style="font-size:3rem;margin-bottom:16px;">✅</div>
+              <h3 style="color:var(--green);margin-bottom:8px;">Message Sent!</h3>
+              <p style="color:var(--green);max-width:none;">We'll get back to you within 2 business days. Keep an eye on your inbox.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar info -->
+        <div>
+          <div class="card mb-24">
+            <h4 style="margin-bottom:16px;">What to Expect</h4>
+            <ul class="check-list">
+              <li>Response within 2 business days</li>
+              <li>No hard sell — we'll help you find the right fit</li>
+              <li>Honest about what we offer and what we don't</li>
+              <li>Free discovery call available for facility bundles</li>
+            </ul>
+          </div>
+          <div class="card mb-24">
+            <h4 style="margin-bottom:16px;">Good Fits for Consulting</h4>
+            <p style="font-size:0.9rem;">We work best with rural critical access hospitals, small ambulatory surgery centers, facilities in the early stages of building an SPD education program, and new SPD leaders who need an outside perspective and a starting framework.</p>
+          </div>
+          <div class="card">
+            <h4 style="margin-bottom:8px;">📧 Direct Email</h4>
+            <p style="font-size:0.9rem;margin-top:4px;">Prefer email? Reach us at<br/><strong style="color:var(--teal);">hello@spdfieldguide.com</strong></p>
+            <h4 style="margin-top:20px;margin-bottom:8px;">⏰ Response Times</h4>
+            <p style="font-size:0.9rem;">Monday – Friday, 8 AM – 5 PM (Central). Consulting inquiries may take an extra day to route properly.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-contact -->
+
+<!-- ═══════════════════════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════════════════════ -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo" onclick="showPage('home')" style="margin-bottom:12px;display:inline-flex;">
+          <div class="nav-logo-mark" style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2L3 6v8l7 4 7-4V6L10 2z" stroke="white" stroke-width="1.5" fill="none"/><path d="M10 6v8M7 7.5l3 1.5 3-1.5" stroke="#22B8CF" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <div class="nav-logo-text"><strong style="color:white;">Sterile Processing Field Guide</strong><span>SPD Education</span></div>
+        </a>
+        <p>Practical sterile processing training tools for rural facilities, new SPD technicians, cross-trained staff, and frontline leaders.</p>
+        <div style="margin-top:16px;padding:14px;background:rgba(255,255,255,0.05);border-radius:var(--radius-md);border:1px solid rgba(255,255,255,0.08);">
+          <p style="font-size:0.78rem;color:rgba(255,255,255,0.45);max-width:none;">Materials are educational and do not replace manufacturer IFUs, facility policies, AAMI standards, CDC guidance, OSHA requirements, FDA guidance, accreditation requirements, or employer-based competency validation.</p>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Resources</h5>
+        <ul>
+          <li><a href="#" onclick="showPage('training')">Training Modules</a></li>
+          <li><a href="#" onclick="showPage('training')">Competency Tools</a></li>
+          <li><a href="#" onclick="showPage('training')">SOP Templates</a></li>
+          <li><a href="#" onclick="showPage('training')">Free Downloads</a></li>
+          <li><a href="#" onclick="showPage('store')">Browse Store</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Facility</h5>
+        <ul>
+          <li><a href="#" onclick="showPage('facility')">Facility Bundles</a></li>
+          <li><a href="#" onclick="showPage('facility')">Remote Consulting</a></li>
+          <li><a href="#" onclick="showPage('leadership')">Leadership Tools</a></li>
+          <li><a href="#" onclick="showPage('leadership')">New Lead Coaching</a></li>
+          <li><a href="#" onclick="showPage('contact')">Request Support</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#" onclick="showPage('about')">About</a></li>
+          <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Use</a></li>
+          <li><a href="#">Educational Disclaimer</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Sterile Processing Field Guide. All rights reserved.</span>
+      <span>Built for the people who do the work that makes surgery safe.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════════════════
+     JAVASCRIPT
+═══════════════════════════════════════════════════════════ -->
+<script>
+// ── Page routing ──────────────────────────────────────────
+const pages = ['home','training','facility','leadership','store','about','contact'];
+
+function showPage(name) {
+  pages.forEach(p => {
+    document.getElementById('page-'+p)?.classList.remove('active');
+    document.getElementById('nav-'+p)?.classList.remove('active');
+  });
+  document.getElementById('page-'+name)?.classList.add('active');
+  document.getElementById('nav-'+name)?.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  // Render quiz if needed
+  if (name === 'home') renderQuiz();
+}
+
+function toggleMobileMenu() {
+  document.getElementById('mobile-menu').classList.toggle('open');
+}
+
+// ── Init ──────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  renderQuiz();
+});
+
+// ── Material filter ───────────────────────────────────────
+function filterMaterials(cat, btn) {
+  document.querySelectorAll('#materials-grid .card').forEach(card => {
+    if (cat === 'all' || card.dataset.cat?.includes(cat)) {
+      card.style.display = '';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+  document.querySelectorAll('[onclick^="filterMaterials"]').forEach(b => {
+    b.classList.remove('btn--primary');
+    b.classList.add('btn--outline');
+  });
+  btn.classList.remove('btn--outline');
+  btn.classList.add('btn--primary');
+}
+
+// ── Quiz engine ───────────────────────────────────────────
+const quizData = [
+  {
+    q: "What is the Spaulding classification of a flexible colonoscope?",
+    opts: ["Critical — requires sterilization", "Semi-critical — requires high-level disinfection", "Non-critical — requires low-level disinfection", "Non-critical — requires intermediate disinfection"],
+    answer: 1,
+    explain: "A colonoscope contacts mucous membranes of the colon and is classified as Semi-Critical, requiring High-Level Disinfection (HLD) at minimum per the Spaulding Classification system (CDC Guideline 2008 | AAMI ST91)."
+  },
+  {
+    q: "Per AAMI ST79, when must a biological indicator (BI) be used?",
+    opts: ["Only when the sterilizer is new", "Weekly at minimum for each sterilizer in use; every load containing implants", "Monthly for steam sterilizers only", "Only when a cycle failure is suspected"],
+    answer: 1,
+    explain: "AAMI ST79 requires biological indicators at minimum weekly for each sterilizer in service. The Joint Commission (TJC) requires a BI in every load containing implants, and that load must not be released until the BI result is confirmed negative."
+  },
+  {
+    q: "What is the PRIMARY purpose of pre-cleaning at the point of use?",
+    opts: ["To sterilize the instrument before transport", "To remove gross soil and prevent biofilm formation before full reprocessing", "To replace manual cleaning in the decontamination area", "To satisfy OSHA PPE requirements"],
+    answer: 1,
+    explain: "Pre-cleaning at point of use removes gross soil (blood, tissue, bioburden) that can form biofilm within minutes on instrument surfaces. Biofilm makes subsequent manual cleaning and sterilization significantly less effective. (AAMI ST79 | SGNA | AORN)"
+  },
+  {
+    q: "In the sterile processing decontamination area, which PPE is REQUIRED per OSHA 29 CFR 1910.1030?",
+    opts: ["Gloves only", "Gown and gloves only", "Gown, gloves, face shield/goggles, and mask at minimum", "Mask and shoe covers only"],
+    answer: 2,
+    explain: "OSHA 29 CFR 1910.1030 (Bloodborne Pathogens Standard) requires appropriate PPE in the decontamination area including gown (fluid-resistant), heavy-duty gloves, and face/eye protection (shield or goggles + mask) at minimum. Waterproof apron and shoe covers are also recommended."
+  },
+  {
+    q: "Sterile storage areas should be maintained at what temperature and relative humidity per ASHRAE 170?",
+    opts: ["15–20°C / 20–50% RH", "18–23°C (64–73°F) / 35–70% RH", "25–30°C / 50–80% RH", "Temperature not regulated; 40–60% RH only"],
+    answer: 1,
+    explain: "ASHRAE Standard 170 and AAMI ST79 specify sterile storage temperature of 18–23°C (64–73°F) and relative humidity of 35–70%. These parameters prevent condensation on packages and protect package integrity — both of which maintain event-related sterility."
+  }
+];
+
+let quizState = { current: 0, score: 0, answered: false };
+
+function renderQuiz() {
+  const el = document.getElementById('quiz-embed');
+  if (!el) return;
+  quizState = { current: 0, score: 0, answered: false };
+  el.innerHTML = buildQuizHTML();
+  updateQuizDisplay();
+}
+
+function buildQuizHTML() {
+  return `
+  <div class="quiz-container">
+    <div class="quiz-header">
+      <div class="flex-between">
+        <h3>SPD Knowledge Check — Beginner Level</h3>
+        <span class="caption" style="color:rgba(255,255,255,0.55);" id="q-counter">Question 1 of ${quizData.length}</span>
+      </div>
+      <div class="quiz-progress-bar">
+        <div class="quiz-progress-fill" id="q-progress" style="width:${100/quizData.length}%"></div>
+      </div>
+    </div>
+    <div id="quiz-body">
+      <div class="quiz-body">
+        <p class="quiz-question" id="q-text"></p>
+        <div class="quiz-options" id="q-opts"></div>
+        <div class="quiz-feedback" id="q-feedback"></div>
+        <div class="quiz-nav">
+          <span class="caption" id="q-score-label">Score: 0 / 0</span>
+          <button class="btn btn--primary btn--sm" id="q-next" onclick="nextQuestion()" style="display:none;">Next Question →</button>
+        </div>
+      </div>
+    </div>
+    <div id="quiz-result" class="quiz-result hidden">
+      <div style="font-size:3rem;margin-bottom:8px;" id="result-emoji">🎉</div>
+      <h3 style="margin-bottom:4px;">Quiz Complete!</h3>
+      <div class="quiz-score" id="result-score"></div>
+      <p id="result-msg" style="max-width:none;margin-bottom:24px;"></p>
+      <div class="flex-center gap-16" style="flex-wrap:wrap;">
+        <button class="btn btn--primary" onclick="renderQuiz()">Try Again</button>
+        <a href="#" class="btn btn--outline" onclick="showPage('training')">Explore Training Materials</a>
+      </div>
+    </div>
+  </div>`;
+}
+
+function updateQuizDisplay() {
+  const q = quizData[quizState.current];
+  const pct = ((quizState.current + 1) / quizData.length) * 100;
+  document.getElementById('q-counter').textContent = `Question ${quizState.current+1} of ${quizData.length}`;
+  document.getElementById('q-progress').style.width = pct + '%';
+  document.getElementById('q-text').textContent = q.q;
+  const optsEl = document.getElementById('q-opts');
+  optsEl.innerHTML = q.opts.map((opt, i) =>
+    `<button class="quiz-option" onclick="answerQuestion(${i})">${opt}</button>`
+  ).join('');
+  document.getElementById('q-feedback').className = 'quiz-feedback';
+  document.getElementById('q-feedback').textContent = '';
+  document.getElementById('q-next').style.display = 'none';
+  document.getElementById('q-score-label').textContent = `Score: ${quizState.score} / ${quizState.current}`;
+  quizState.answered = false;
+}
+
+function answerQuestion(idx) {
+  if (quizState.answered) return;
+  quizState.answered = true;
+  const q = quizData[quizState.current];
+  const opts = document.querySelectorAll('.quiz-option');
+  opts.forEach((o, i) => {
+    o.classList.add('disabled');
+    if (i === q.answer) o.classList.add('correct');
+    if (i === idx && idx !== q.answer) o.classList.add('incorrect');
+  });
+  const fb = document.getElementById('q-feedback');
+  const correct = idx === q.answer;
+  if (correct) quizState.score++;
+  fb.className = 'quiz-feedback show ' + (correct ? 'correct' : 'incorrect');
+  fb.innerHTML = `<strong>${correct ? '✓ Correct!' : '✗ Not quite.'}</strong> ${q.explain}`;
+  document.getElementById('q-score-label').textContent = `Score: ${quizState.score} / ${quizState.current + 1}`;
+  const nextBtn = document.getElementById('q-next');
+  nextBtn.style.display = '';
+  nextBtn.textContent = quizState.current < quizData.length - 1 ? 'Next Question →' : 'See Results';
+}
+
+function nextQuestion() {
+  quizState.current++;
+  if (quizState.current >= quizData.length) {
+    showQuizResult();
+  } else {
+    updateQuizDisplay();
+  }
+}
+
+function showQuizResult() {
+  document.getElementById('quiz-body').classList.add('hidden');
+  const result = document.getElementById('quiz-result');
+  result.classList.remove('hidden');
+  const pct = Math.round((quizState.score / quizData.length) * 100);
+  document.getElementById('result-score').textContent = `${quizState.score} / ${quizData.length}`;
+  let emoji = '🎉', msg = '';
+  if (pct >= 80) { emoji = '🏆'; msg = "Excellent work! Strong foundational SPD knowledge. Consider exploring our advanced training modules to keep building."; }
+  else if (pct >= 60) { emoji = '👍'; msg = "Good start! A few areas to review. Check out our Beginner Field Guide to reinforce the concepts you missed."; }
+  else { emoji = '📚'; msg = "This is a great starting point. Our SPD Beginner Field Guide covers all of these topics in depth — download it free and try the quiz again."; }
+  document.getElementById('result-emoji').textContent = emoji;
+  document.getElementById('result-msg').textContent = msg;
+}
+
+// ── Form handlers ─────────────────────────────────────────
+function submitFreeDownload() {
+  const name = document.getElementById('free-name').value.trim();
+  const email = document.getElementById('free-email').value.trim();
+  if (!email || !email.includes('@')) {
+    alert('Please enter a valid email address.');
+    return;
+  }
+  document.getElementById('free-form').classList.add('hidden');
+  document.getElementById('free-success').classList.remove('hidden');
+}
+
+function submitContact() {
+  const email = document.getElementById('cf-email').value.trim();
+  const msg = document.getElementById('cf-message').value.trim();
+  if (!email || !email.includes('@')) { alert('Please enter a valid email address.'); return; }
+  if (!msg) { alert('Please enter a message.'); return; }
+  document.getElementById('contact-form').classList.add('hidden');
+  document.getElementById('contact-success').classList.remove('hidden');
+}
+
+function subscribeShop() {
+  const email = document.getElementById('shop-email').value.trim();
+  if (!email || !email.includes('@')) { alert('Please enter a valid email.'); return; }
+  document.getElementById('shop-success').classList.remove('hidden');
+}
+</script>
+
+</body>
+</html>
